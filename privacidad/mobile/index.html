@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Política de privacidad — SASPS GO Mobile — SASPS GO</title>
+<meta name="description" content="Política de privacidad — SASPS GO Mobile">
+<meta name="color-scheme" content="dark light">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src https://formspree.io; base-uri 'none'; form-action 'none'">
+<meta name="theme-color" content="#0b1511">
+<link rel="icon" href="../../assets/emblem.png" type="image/png">
+<link rel="stylesheet" href="../../assets/style.css">
+<link rel="preload" href="../../assets/fonts/Manrope.ttf" as="font" type="font/ttf" crossorigin>
+</head>
+<body>
+<a class="skip" href="#main">Saltar al contenido</a>
+<header class="site-header"><div class="wrap">
+  <a class="brand" href="../../"><img src="../../assets/emblem.png" alt="" width="38" height="38"><span><small>State Park's Services</small>SASPS GO</span></a>
+  <nav class="nav" aria-label="Principal"><a href="../../privacidad/" aria-current="page">Privacidad</a><a href="../../#contacto">Contacto</a></nav>
+</div></header>
+<main id="main">
+<div class="wrap doc">
+  <nav class="doc-nav" aria-label="Políticas"><h2>Políticas</h2><a href="../studio/">Studio</a><a href="../companion/">Companion</a><a href="../mobile/" aria-current="page">Mobile</a><a href="../sitio/">Sitio web y formulario</a></nav>
+  <article class="doc-body">
+    <p class="crumbs"><a href="../../">Inicio</a> / <a href="../">Privacidad</a> / Mobile</p>
+    <h1>Política de privacidad — SASPS GO Mobile</h1>
+    <p class="updated">Última actualización: <time datetime="2026-11-25">25 de noviembre de 2026</time></p>
+    <nav class="doc-tabs" aria-label="Otras políticas"><a href="../studio/">Studio</a><a href="../companion/">Companion</a><a href="../mobile/" aria-current="page">Mobile</a><a href="../sitio/">Sitio web y formulario</a></nav>
+    <p class="doc-meta"><strong>Editor:</strong> LawrenceK · <strong>Contacto de privacidad:</strong> formulario de contacto de la página pública de SASPS GO (<a href="../../#contacto">ir al formulario</a>)</p>
+<h2>1. Qué es SASPS GO Mobile</h2>
+<p>SASPS GO Mobile es la aplicación de operación para miembros autorizados de una comunidad de rol (San Andreas State Parks Service). Muestra tu perfil (botones de radio, aviación, Fauna y macros) y envía tus órdenes a <strong>SASPS GO Companion</strong>, instalado en tu PC, que las ejecuta. Pueden usarla todos los miembros autorizados, incluidos propietarios y administradores, para sus funciones operativas. La administración y la configuración (miembros, permisos, dispositivos de otras personas, SASPS Oficial y verificación en dos pasos) <strong>no</strong> están en esta aplicación: se hacen en SASPS GO Studio.</p>
+<h2>2. Datos que se tratan</h2>
+<p class="doc-meta"><strong>En Supabase (servicio de autenticación y base de datos):</strong></p>
+<ul>
+<li><strong>Cuenta y membresía:</strong> identificador único de usuario, número de placa, nombre visible, facción, rol, estado y permisos. Los miembros entran con su placa y contraseña; los propietarios y administradores, con su correo y contraseña. La contraseña la gestiona el servicio de autenticación; no la guardamos en claro.</li>
+<li><strong>Dispositivo:</strong> etiqueta, plataforma, huella aleatoria generada por la aplicación y fechas de uso/revocación, cuando eliges «Recordar este dispositivo».</li>
+<li><strong>Configuración:</strong> tu perfil oficial heredado y tus personalizaciones: botones, <strong>macros propias con su texto</strong>, roles, configuración de Fauna y revisiones.</li>
+<li><strong>Seguridad:</strong> intentos de acceso por placa (placa, dirección IP, resultado y fecha) y registros administrativos de las acciones sobre tu cuenta.</li>
+</ul>
+<p class="doc-meta"><strong>En tu teléfono:</strong></p>
+<ul>
+<li>En el almacenamiento seguro del sistema (Android Keystore): el token de renovación de tu sesión, el hash con sal de tu PIN de 4 dígitos, el identificador del dispositivo y los datos del PC vinculado (dirección en la red local, puerto, huella del certificado, identificador del dispositivo y su secreto).</li>
+<li>En las preferencias de la aplicación: ajustes visuales, unidad activa y copia local de tu configuración. Esa información no incluye contraseñas ni tokens y no se exporta en los archivos de perfil.</li>
+<li>Los tokens de acceso viven solo en memoria.</li>
+</ul>
+<h2>3. Permisos del teléfono</h2>
+<ul>
+<li><strong>Internet:</strong> para comunicarte con Supabase y, en la red local, con tu Companion.</li>
+<li><strong>Cámara:</strong> solo para escanear el código QR de vinculación con tu PC. Las imágenes no se guardan ni se envían.</li>
+</ul>
+<p>No usamos ubicación, micrófono, contactos ni archivos de tu teléfono, y no incluimos analítica ni publicidad de terceros.</p>
+<h2>4. Comunicación con tu Companion</h2>
+<p>Al vincular, el teléfono comprueba la huella del certificado de tu PC y desde entonces solo habla con ese PC por conexión cifrada en la red local. Cada vez que se conecta, le envía <strong>la sesión de tu cuenta</strong> (para que el PC compruebe que eres un miembro activo) y, cuando pulsas un botón, <strong>el texto o las teclas de esa acción</strong>, que el PC ejecuta. Esa comunicación es local; la <strong>configuración</strong> de tus macros (incluido su texto) se guarda y sincroniza aparte en tu perfil de Supabase, como se indica en «Datos que se tratan». Si cierras la sesión, tu membresía se suspende o se revoca, el PC deja de aceptar el teléfono.</p>
+<h2>5. Sesión, PIN y seguridad</h2>
+<p>El PIN solo desbloquea localmente un dispositivo ya autorizado y no sustituye a la sesión del servidor; tras varios intentos fallidos se borran los secretos locales. Una sesión o un dispositivo revocado, o una membresía suspendida, pierden el acceso. Ningún sistema es infalible.</p>
+<h2>6. Proveedor y ubicación</h2>
+<p>Usamos <strong>Supabase</strong> (autenticación, base de datos y funciones de servidor), con alojamiento actualmente en Estados Unidos. Los administradores autorizados de tu facción pueden ver los datos necesarios para administrar tu cuenta.</p>
+<h2>7. Conservación, eliminación y derechos</h2>
+<p>Conservamos los datos mientras tu cuenta esté activa y sean necesarios para seguridad y auditoría; suspender o revocar una cuenta no borra de inmediato todos los registros. Estamos incorporando una limpieza automática de los intentos de acceso antiguos; los plazos se publicarán cuando esté en funcionamiento. Puedes solicitar acceso, rectificación o eliminación de tus datos mediante el formulario de contacto indicado arriba (elige el tipo de solicitud correspondiente). Las solicitudes se gestionan manualmente y podemos pedirte datos adicionales para verificar tu identidad. Los mensajes que envíes por ese formulario se tratan según la <a href="../../privacidad/sitio/">política de privacidad del sitio web</a>. «Cerrar sesión» termina la sesión en el servidor, pero el dispositivo sigue autorizado para desbloquearse con PIN. «Cerrar sesión y olvidar dispositivo» borra los secretos locales, y «Desvincular» borra los datos del PC vinculado.</p>
+<h2>8. Cambios</h2>
+<p>Podemos actualizar esta política; la fecha indica la versión vigente.</p>
+  </article>
+</div>
+</main>
+<footer><div class="wrap">
+  <div>© 2026 LawrenceK · SASPS GO es un sistema de apoyo para una comunidad de rol. No está afiliado a ninguna entidad real.</div>
+  <nav aria-label="Pie">
+    <a href="../../privacidad/studio/">Studio</a><a href="../../privacidad/companion/">Companion</a>
+    <a href="../../privacidad/mobile/">Mobile</a><a href="../../privacidad/sitio/">Sitio web</a><a href="../../#contacto">Contacto</a>
+  </nav>
+</div></footer>
+</body></html>

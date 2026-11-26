@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Política de privacidad — SASPS GO Studio — SASPS GO</title>
+<meta name="description" content="Política de privacidad — SASPS GO Studio">
+<meta name="color-scheme" content="dark light">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src https://formspree.io; base-uri 'none'; form-action 'none'">
+<meta name="theme-color" content="#0b1511">
+<link rel="icon" href="../../assets/emblem.png" type="image/png">
+<link rel="stylesheet" href="../../assets/style.css">
+<link rel="preload" href="../../assets/fonts/Manrope.ttf" as="font" type="font/ttf" crossorigin>
+</head>
+<body>
+<a class="skip" href="#main">Saltar al contenido</a>
+<header class="site-header"><div class="wrap">
+  <a class="brand" href="../../"><img src="../../assets/emblem.png" alt="" width="38" height="38"><span><small>State Park's Services</small>SASPS GO</span></a>
+  <nav class="nav" aria-label="Principal"><a href="../../privacidad/" aria-current="page">Privacidad</a><a href="../../#contacto">Contacto</a></nav>
+</div></header>
+<main id="main">
+<div class="wrap doc">
+  <nav class="doc-nav" aria-label="Políticas"><h2>Políticas</h2><a href="../studio/" aria-current="page">Studio</a><a href="../companion/">Companion</a><a href="../mobile/">Mobile</a><a href="../sitio/">Sitio web y formulario</a></nav>
+  <article class="doc-body">
+    <p class="crumbs"><a href="../../">Inicio</a> / <a href="../">Privacidad</a> / Studio</p>
+    <h1>Política de privacidad — SASPS GO Studio</h1>
+    <p class="updated">Última actualización: <time datetime="2026-11-25">25 de noviembre de 2026</time></p>
+    <nav class="doc-tabs" aria-label="Otras políticas"><a href="../studio/" aria-current="page">Studio</a><a href="../companion/">Companion</a><a href="../mobile/">Mobile</a><a href="../sitio/">Sitio web y formulario</a></nav>
+    <p class="doc-meta"><strong>Editor:</strong> LawrenceK · <strong>Contacto de privacidad:</strong> formulario de contacto de la página pública de SASPS GO (<a href="../../#contacto">ir al formulario</a>)</p>
+<h2>1. Qué es SASPS GO Studio</h2>
+<p>SASPS GO Studio es una aplicación de escritorio para administrar SASPS GO, un sistema de apoyo a una comunidad de rol (San Andreas State Parks Service): perfiles oficiales y personales, configuraciones, miembros, permisos y dispositivos. Está pensada para propietarios y administradores autorizados de la comunidad.</p>
+<p>Studio <strong>no</strong> controla FiveM, <strong>no</strong> envía pulsaciones de teclado a FiveM ni a ningún otro programa y <strong>no</strong> lee archivos de otras aplicaciones de SASPS GO. La ejecución de macros la realiza SASPS GO Companion en el equipo de cada miembro (ver su política).</p>
+<h2>2. Cómo se identifica cada persona</h2>
+<ul>
+<li><strong>Propietarios y administradores:</strong> inician sesión con <strong>correo electrónico y contraseña</strong>. Para las funciones administrativas se exige además <strong>verificación en dos pasos (TOTP)</strong> con una aplicación autenticadora.</li>
+<li><strong>Miembros:</strong> entran con su <strong>número de placa</strong> y contraseña, sin correo visible. Internamente el servicio de autenticación crea una cuenta técnica por membresía; ese identificador interno no se muestra al usuario.</li>
+<li>Cada cuenta tiene un identificador único e inmutable generado por el servicio de autenticación. La placa es un atributo de la membresía, no el identificador de la cuenta.</li>
+</ul>
+<h2>3. Datos que se tratan</h2>
+<p class="doc-meta"><strong>En el servicio de autenticación y la base de datos (Supabase):</strong></p>
+<div class="table-wrap"><table><thead><tr><th>Tipo</th><th>Datos</th></tr></thead><tbody>
+<tr><td>Cuenta</td><td>correo (solo propietarios/administradores), contraseña protegida por el servicio (no la vemos ni la guardamos en claro), identificador de usuario, factor TOTP (el secreto lo gestiona el servicio de autenticación)</td></tr>
+<tr><td>Membresía</td><td>facción, rol, estado (activo, pendiente, suspendido, revocado), permisos, nombre visible, número de placa</td></tr>
+<tr><td>Dispositivos</td><td>etiqueta, plataforma, huella del dispositivo (identificador aleatorio generado por la aplicación), fechas de alta, último uso y revocación</td></tr>
+<tr><td>Configuración</td><td>perfil oficial y sus versiones, personalizaciones de cada miembro, macros propias (incluido su texto), roles, configuración de Fauna y Aviación, espacios de trabajo con su número de revisión</td></tr>
+<tr><td>Seguridad</td><td>intentos de acceso por placa (placa, dirección IP, resultado y fecha) y registro de acciones administrativas (quién, qué acción, sobre qué cuenta y cuándo; <strong>no</strong> incluye el texto de las macros)</td></tr>
+</tbody></table></div>
+<p class="doc-meta"><strong>En el equipo donde se usa Studio:</strong> la sesión (token de renovación) y el código PIN de desbloqueo (guardado con hash y sal) se almacenan en el almacenamiento seguro del sistema; las preferencias y borradores se guardan en la carpeta privada de la aplicación. Los tokens de acceso viven solo en memoria. Estos secretos no se incluyen en los archivos de perfil que se exportan.</p>
+<h2>4. Para qué se usan</h2>
+<p>Autenticar usuarios, comprobar permisos, administrar miembros y dispositivos, publicar y sincronizar perfiles y configuraciones, proteger las cuentas (bloqueo progresivo de intentos y verificación en dos pasos) y registrar las operaciones administrativas. No vendemos datos ni los usamos para publicidad ni para elaborar perfiles comerciales. Studio no incluye analítica ni telemetría de terceros.</p>
+<h2>5. Sesiones, dispositivos y seguridad</h2>
+<ul>
+<li>El PIN de 4 dígitos solo desbloquea localmente un dispositivo ya autorizado; no sustituye a la sesión del servidor. Tras varios PIN incorrectos se borran los secretos locales.</li>
+<li>Una sesión revocada, una membresía suspendida o un dispositivo revocado dejan de tener acceso.</li>
+<li>Las acciones críticas las valida el servidor con las reglas de permisos y, para las administrativas, con el nivel de verificación en dos pasos; no dependen de lo que declare la aplicación.</li>
+<li>Ningún sistema es infalible: aplicamos medidas razonables, pero no podemos garantizar seguridad absoluta.</li>
+</ul>
+<h2>6. Proveedor y ubicación</h2>
+<p>Usamos <strong>Supabase</strong> como proveedor de autenticación, base de datos y funciones de servidor. Los datos se alojan actualmente en infraestructura de Estados Unidos. Los administradores autorizados pueden ver los datos necesarios para sus funciones, limitados por permisos y por facción.</p>
+<h2>7. Conservación y eliminación</h2>
+<p>Conservamos los datos mientras la cuenta esté activa y mientras sean necesarios para la seguridad y la auditoría de la comunidad. La suspensión o la revocación de una cuenta no borra de inmediato todos los registros asociados. Estamos incorporando una limpieza automática de los intentos de acceso antiguos; los plazos concretos se publicarán cuando esté en funcionamiento. Hasta entonces, esos registros se conservan y su eliminación se gestiona a petición.</p>
+<h2>8. Tus derechos</h2>
+<p>Puedes solicitar acceso, rectificación o eliminación de tus datos personales, según la normativa aplicable, mediante el formulario de contacto indicado arriba (elige el tipo de solicitud correspondiente). Las solicitudes se gestionan manualmente y podemos pedirte datos adicionales para verificar tu identidad antes de actuar. Los mensajes que envíes por ese formulario se tratan según la <a href="../../privacidad/sitio/">política de privacidad del sitio web</a>.</p>
+<h2>9. Cambios</h2>
+<p>Podemos actualizar esta política si cambian las funciones, los servicios usados o los requisitos legales. La fecha de actualización identifica la versión vigente.</p>
+  </article>
+</div>
+</main>
+<footer><div class="wrap">
+  <div>© 2026 LawrenceK · SASPS GO es un sistema de apoyo para una comunidad de rol. No está afiliado a ninguna entidad real.</div>
+  <nav aria-label="Pie">
+    <a href="../../privacidad/studio/">Studio</a><a href="../../privacidad/companion/">Companion</a>
+    <a href="../../privacidad/mobile/">Mobile</a><a href="../../privacidad/sitio/">Sitio web</a><a href="../../#contacto">Contacto</a>
+  </nav>
+</div></footer>
+</body></html>

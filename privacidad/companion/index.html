@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Política de privacidad — SASPS GO Companion — SASPS GO</title>
+<meta name="description" content="Política de privacidad — SASPS GO Companion">
+<meta name="color-scheme" content="dark light">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src https://formspree.io; base-uri 'none'; form-action 'none'">
+<meta name="theme-color" content="#0b1511">
+<link rel="icon" href="../../assets/emblem.png" type="image/png">
+<link rel="stylesheet" href="../../assets/style.css">
+<link rel="preload" href="../../assets/fonts/Manrope.ttf" as="font" type="font/ttf" crossorigin>
+</head>
+<body>
+<a class="skip" href="#main">Saltar al contenido</a>
+<header class="site-header"><div class="wrap">
+  <a class="brand" href="../../"><img src="../../assets/emblem.png" alt="" width="38" height="38"><span><small>State Park's Services</small>SASPS GO</span></a>
+  <nav class="nav" aria-label="Principal"><a href="../../privacidad/" aria-current="page">Privacidad</a><a href="../../#contacto">Contacto</a></nav>
+</div></header>
+<main id="main">
+<div class="wrap doc">
+  <nav class="doc-nav" aria-label="Políticas"><h2>Políticas</h2><a href="../studio/">Studio</a><a href="../companion/" aria-current="page">Companion</a><a href="../mobile/">Mobile</a><a href="../sitio/">Sitio web y formulario</a></nav>
+  <article class="doc-body">
+    <p class="crumbs"><a href="../../">Inicio</a> / <a href="../">Privacidad</a> / Companion</p>
+    <h1>Política de privacidad — SASPS GO Companion</h1>
+    <p class="updated">Última actualización: <time datetime="2026-11-25">25 de noviembre de 2026</time></p>
+    <nav class="doc-tabs" aria-label="Otras políticas"><a href="../studio/">Studio</a><a href="../companion/" aria-current="page">Companion</a><a href="../mobile/">Mobile</a><a href="../sitio/">Sitio web y formulario</a></nav>
+    <p class="doc-meta"><strong>Editor:</strong> LawrenceK · <strong>Contacto de privacidad:</strong> formulario de contacto de la página pública de SASPS GO (<a href="../../#contacto">ir al formulario</a>)</p>
+<h2>1. Qué es SASPS GO Companion</h2>
+<p>Companion es una aplicación residente de Windows (icono en la bandeja del sistema) que recibe órdenes de <strong>SASPS GO Mobile</strong>, instalado en el teléfono del mismo usuario, y las ejecuta en <strong>su</strong> PC: escribe mensajes y pulsa teclas en la ventana de FiveM mediante entrada de teclado simulada, o reproduce sonidos de Fauna. Es la única parte de SASPS GO que puede actuar sobre el equipo del miembro.</p>
+<h2>2. Macros: cómo funcionan y qué datos tocan</h2>
+<ul>
+<li><strong>Modo SIMULADO (predeterminado):</strong> las acciones se registran solo en la memoria de la aplicación y <strong>no se escribe nada</strong> en ningún programa. Pasar al modo de teclado real exige activarlo expresamente.</li>
+<li><strong>Modo de teclado real (opcional):</strong> Companion envía pulsaciones con las funciones normales de entrada de Windows (<code>SendInput</code>), <strong>solo si la ventana en primer plano es una de las permitidas</strong> (FiveM/GTA). No lee ni modifica la memoria de otros programas. Si el método elegido es el portapapeles, guarda temporalmente el contenido que hubiera en él, lo sustituye por el texto del mensaje y lo restaura.</li>
+<li><strong>Qué recibe Companion del teléfono:</strong> el texto y las teclas de cada acción que el usuario pulsa, el estado de reproducción de sonidos y las peticiones de sincronización. Companion devuelve al teléfono su estado y el resultado de cada acción.</li>
+<li><strong>Qué guarda:</strong> el texto de las macros <strong>no se escribe en disco</strong> ni en el historial: el historial de la bandeja y el registro interno solo contienen el tipo de acción, su estado y la hora, y se guardan en memoria mientras la aplicación está abierta.</li>
+<li><strong>A dónde se envía:</strong> el texto de las macros y las pulsaciones <strong>no se envían a Internet ni a Supabase</strong> desde Companion; solo viajan por la red local entre el teléfono y el PC. Esto es distinto de la <strong>configuración</strong> de tus macros (incluido su texto): esa configuración la guardan y sincronizan SASPS GO Mobile y SASPS GO Studio en tu perfil de Supabase, y Companion no participa en esa sincronización.</li>
+</ul>
+<h2>3. Conexiones</h2>
+<p class="doc-meta"><strong>Red local (con el teléfono):</strong> Companion escucha en el puerto 47821 con cifrado TLS y un certificado propio; el teléfono comprueba su huella, que recibe al vincularse. Solo se aceptan conexiones desde redes privadas y de dispositivos ya vinculados. No acepta órdenes antes de autenticar al teléfono y limita los intentos fallidos. Windows puede pedir permiso de firewall la primera vez: se recomienda permitir solo «Redes privadas». Companion no crea reglas de firewall.</p>
+<p class="doc-meta"><strong>Internet (con Supabase):</strong> Companion hace dos tipos de consulta al proyecto de Supabase de SASPS GO:</p>
+<p>1. descarga las <strong>claves públicas de firma</strong> del servicio de autenticación (no contiene datos personales);</p>
+<p>2. cuando un teléfono se vincula o se conecta, <strong>envía la sesión (token) del usuario y su identificador</strong> para comprobar que la sesión es válida y que su membresía está activa en la facción correcta; recibe facción, rol y estado.</p>
+<p>Companion no usa claves de administración de Supabase y no incluye analítica ni telemetría.</p>
+<h2>4. Datos guardados en tu PC</h2>
+<p>En la carpeta privada de la aplicación (se conserva al actualizar y se elimina al desinstalar):</p>
+<div class="table-wrap"><table><thead><tr><th>Dato</th><th>Detalle</th></tr></thead><tbody>
+<tr><td>Cuenta vinculada</td><td>identificador de usuario, facción, rol y fecha de vinculación (un Companion pertenece a una sola cuenta hasta que se desvincule)</td></tr>
+<tr><td>Teléfonos vinculados</td><td>identificador, nombre, fechas, y un secreto protegido con el cifrado de Windows (DPAPI) para el usuario actual</td></tr>
+<tr><td>Certificado TLS</td><td>protegido con DPAPI</td></tr>
+<tr><td>Ajustes</td><td>modo de ejecución, audio y preferencias</td></tr>
+<tr><td>Sonidos</td><td>los archivos de audio que importes; <strong>nunca se suben a la nube</strong></td></tr>
+</tbody></table></div>
+<p>Desde el icono de la bandeja puedes <strong>desvincular los teléfonos</strong> (se revocan y se libera la cuenta), consultar la cuenta vinculada y un historial mínimo, importar sonidos, activar o desactivar el <strong>inicio con Windows</strong> (desactivado por defecto) y <strong>cerrar</strong> la aplicación por completo.</p>
+<h2>5. Seguridad</h2>
+<p>Verificamos criptográficamente las sesiones de Supabase (firma, caducidad, emisor y audiencia), comprobamos la membresía activa, revocamos de forma permanente los teléfonos de una cuenta suspendida o revocada y exigimos que cada conexión sea del mismo usuario que vinculó el teléfono. Ningún sistema es infalible.</p>
+<h2>6. Conservación, eliminación y derechos</h2>
+<p>Los datos locales permanecen hasta que desvincules, borres desde la aplicación o desinstales. Los datos que están en Supabase se rigen por la política de SASPS GO Studio y SASPS GO Mobile. Puedes solicitar acceso, rectificación o eliminación de tus datos mediante el formulario de contacto indicado arriba (elige el tipo de solicitud correspondiente). Las solicitudes se gestionan manualmente y podemos pedirte datos adicionales para verificar tu identidad. Los mensajes que envíes por ese formulario se tratan según la <a href="../../privacidad/sitio/">política de privacidad del sitio web</a>.</p>
+<h2>7. Cambios</h2>
+<p>Podemos actualizar esta política si cambian las funciones o los requisitos legales; la fecha indica la versión vigente.</p>
+  </article>
+</div>
+</main>
+<footer><div class="wrap">
+  <div>© 2026 LawrenceK · SASPS GO es un sistema de apoyo para una comunidad de rol. No está afiliado a ninguna entidad real.</div>
+  <nav aria-label="Pie">
+    <a href="../../privacidad/studio/">Studio</a><a href="../../privacidad/companion/">Companion</a>
+    <a href="../../privacidad/mobile/">Mobile</a><a href="../../privacidad/sitio/">Sitio web</a><a href="../../#contacto">Contacto</a>
+  </nav>
+</div></footer>
+</body></html>
